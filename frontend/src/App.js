@@ -10,6 +10,7 @@ import ServiceCategories from './pages/ServiceCategories';
 import ServiceListings from './pages/ServiceListings';
 import BookingConfirmation from './pages/BookingConfirmation';
 import UserProfilePage from './pages/UserProfilePage';
+import ServiceDetails from './pages/ServiceDetails';
 
 import Navbar from './components/common/Navbar'; 
 
@@ -24,8 +25,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/user/dashboard" element={<UserDashboard />} />
           <Route path="/provider/dashboard" element={<ProviderDashboard />} />
-          <Route path="/service/categories" element={<ServiceCategories />} />
-          <Route path="/service/listings" element={<ServiceListings />} />
+          <Route path="/services/categories" element={<ServiceCategories />} />
+          <Route path="/services/listings" element={<ServiceListings categoryId={'Maid'} />} />
+          <Route path="/services/listings/service" element={<ServiceDetails />} />
           <Route path="/booking/confirmation" element={<BookingConfirmation />} />
           <Route path="/user/profile" element={<UserProfilePage />} />
         </Routes>

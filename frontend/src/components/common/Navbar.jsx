@@ -12,6 +12,7 @@ const Navbar = () => {
         <div className="left-links">
           <Link className="navbar-link" to='/'>Home</Link>
           <Link className="navbar-link" to='/user/dashboard'>Dashboard</Link>
+          <Link className="navbar-link" to='/services/categories'>Services</Link>
         </div>
         <div className="logo-container">
           <img src={logo} alt="logo" />
