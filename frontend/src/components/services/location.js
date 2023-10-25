@@ -18,7 +18,7 @@ const Location = () => {
       try {
         if (!coords) return;
         const response = await axios.get(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.latitude},${coords.longitude}&key=AIzaSyDjDL76I9Kbu9XSka0a6x1CrbIogp9BDbE`
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.latitude},${coords.longitude}&key=googleApi`
         );
         const data = response.data.results[0].formatted_address;
         setAddress(data);
