@@ -2,9 +2,10 @@ import React from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 
-import laundryImage from '../../assets/images/laundry.jpeg'
+import chefImage from '../../assets/images/img_chef.jpg'
 import maidImage from '../../assets/images/maid.jpeg'
 import messImage from '../../assets/images/mess.jpg'
+import groceryImage from '../../assets/images/icon_grocery.jpeg'
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -23,12 +24,12 @@ const Header = () => {
         </div>
         <div className='carousel-container'>
           <h1>Daily essentials, at your fingertips</h1>
-          <img src={maidImage} />
+          <img src={groceryImage} />
           {/* <p className="legend">Legend 1</p> */}
         </div>
         <div className='carousel-container'>
           <h1>Revolutionizing Your Laundry Routine</h1>
-          <img src={laundryImage} />
+          <img src={chefImage} />
           {/* <p className="legend">Legend 1</p> */}
         </div>
         <div className='carousel-container'>

@@ -4,15 +4,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import Header from '../components/common/Header'
 import OfferCard from '../components/cards/OfferCard'
-import img1 from '../assets/images/laundry.jpeg'
-import img2 from '../assets/images/maid.jpeg'
-import img3 from '../assets/images/mess.jpg'
+
 import WhyChooseUsCard from '../components/cards/WhyChooseUsCard'
 import WeAreAtCard from '../components/cards/WeAreAtCard';
 import Footer from '../components/common/Footer';
 import FAQCard from '../components/cards/FAQCard';
 import HowItWorks from '../components/HowItWorks';
-import { Link } from 'react-router-dom';
 
 import icon_reliable from '../assets/images/icon_reliable.png'
 import icon_affordable from '../assets/images/icon_affordable.png'
@@ -24,6 +21,11 @@ import icon_delhi from '../assets/images/icon_delhi.svg'
 import icon_hydrabad from '../assets/images/icon_hydrabad.svg'
 import icon_banglore from '../assets/images/icon_banglore.svg'
 import JoinCommunity from '../components/JoinCommunity';
+
+import icon_grocery from '../assets/images/icon_grocery.jpeg'
+import icon_maid from '../assets/images/icon_maid.jpeg'
+import icon_chef from '../assets/images/icon_chef.jpg'
+import icon_tiffin from '../assets/images/icon_tiffin.jpeg'
 
 
 
@@ -37,13 +39,13 @@ const Home = () => {
       <div className='offer-section'>
         <h1 className='section-heading'>What we offer</h1>
         <div className='offer-card-container'>
-          <OfferCard imgUrl={img1} title={'Maid'} desc={`Keep your home spotless with our trusted cleaning professionals.
+          <OfferCard imgUrl={icon_maid} title={'Maid'} desc={`Keep your home spotless with our trusted cleaning professionals.
    - Services include regular cleaning, deep cleaning, and more.`} />
-          <OfferCard imgUrl={img2} title={'Laundry'} desc={` - Save time on laundry with our laundry and dry cleaning services.
+          <OfferCard imgUrl={icon_chef} title={'Cook/Chef'} desc={` - Save time on laundry with our laundry and dry cleaning services.
    - Clean and fresh clothes without the hassle.
 `} />
-          <OfferCard imgUrl={img2} title={'Tiffin/Mess'} desc={`I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.`} />
-          <OfferCard imgUrl={img3} title={'Grocery'} desc={`- Let us handle your grocery shopping while you focus on what matters.
+          <OfferCard imgUrl={icon_tiffin} title={'Tiffin/Mess'} desc={`I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.`} />
+          <OfferCard imgUrl={icon_grocery} title={'Grocery'} desc={`- Let us handle your grocery shopping while you focus on what matters.
    - Get your groceries delivered right to your doorstep.
 `} />
         </div>
@@ -134,7 +136,7 @@ const Home = () => {
         </div>
       </div>
       <Footer />
-      <a class="btn-6" href="#">Position Aware<span></span></a>
+      {/* <a class="btn-6" href="#">Position Aware<span></span></a> */}
     </div>
   )
 }

@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ServiceListCard from '../components/cards/ServiceListCard'
 import HowItWorksCard from '../components/cards/HowItWorksCard'
 
-import { Link } from "react-router-dom"
 import Footer from '../components/common/Footer'
 import JoinCommunity from '../components/JoinCommunity'
 
@@ -11,22 +10,62 @@ import icon_book from '../assets/images/icon_book.svg'
 import icon_schedule from '../assets/images/icon_schedule.svg'
 import icon_confirm from '../assets/images/icon_confirm.svg'
 
-const ServiceListings = () => {
+import Location from '../components/services/location'
+
+
+
+// import axios from 'axios'
+
+const ServiceListings = ({ maids }) => {
+
+  const currAddress  = Location()
+
+  // const [maids,setMaids] = useState([])
+  // useEffect(() => {
+  //   axios.get('http://localhost:3001/api/maids')
+  //     .then(response => {
+  //       setMaids(response.data)
+  //     })
+  //   },[])
+  // console.log(maids)
+
+
+
+
   return (
     <div className='serviceListing'>
-      <h1 className='serviceListing-heading section-heading' >We Will Clean Your home Like it's our own</h1>
-      <p className='serviceListing-heading-text'>Explore a wide range of [Category Name] services offered by trusted providers. Each listing provides detailed information about the service, provider, pricing, and more. Find the perfect service to meet your needs and book with confidence.</p>
+      <div className="serviceListing-header">
+        <h1 className='serviceListing-heading section-heading' >We Will Clean Your home Like it's our own</h1>
+        <div className='control-section'>
+        <div className='location-container'>
+          <input className='control-section-input' value={currAddress}></input>
+        </div>
+        <div className='sorting-container'>
+          <span>Sort: </span>
+          <select className='control-section-input' defaultValue={'all'} >
+            <option value="title">all</option>
+            <option value="title">Price</option>
+            <option value="description">Rating</option>
+          </select>
+        </div>
+        <div className='filter-container'>
+          <span>Filter: </span>
+          <select className='control-section-input' defaultValue={'all'} >
+            <option value="title">all</option>
+            <option value="title">Gender</option>
+          </select>
+        </div>
+      </div>
+      </div>
+      
 
       <h5 className='serviceListing-subHeading section-heading'>Browse All Available Services</h5>
       <div className="serviceListing-card-container">
-        <ServiceListCard />
-        <ServiceListCard />
-        <ServiceListCard />
-        <ServiceListCard />
-        <ServiceListCard />
-        <ServiceListCard />
+        {
+          maids.map((maid, key) => <ServiceListCard key={key} maid={maid} />)
+        }
       </div>
-      <div className="featuredServices">
+      {/* <div className="featuredServices">
         <h2 className='serviceListing-subHeading section-heading' >Featured Services</h2>
         <div className="featuredSerivices-card-container">
           <ServiceListCard />
@@ -34,7 +73,7 @@ const ServiceListings = () => {
           <ServiceListCard />
         </div>
 
-      </div>
+      </div> */}
       <div className="howToBook">
         <h5 className='serviceListing-subHeading section-heading' >How to Book a Service</h5>
         <div className="howToBook-card-container">

@@ -4,7 +4,7 @@ import { useState } from "react"
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri'
 import logo from '../../assets/images/logo.png'
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   const [toggleMenu, setToggleMenu] = useState(false)
   return (
     <div>
@@ -18,9 +18,18 @@ const Navbar = () => {
           <img src={logo} alt="logo" />
         </div>
         <div className="right-links">
-          <Link className="navbar-link" to='/signup'>Register</Link>
-          <Link className="navbar-link" to='/login'>Login</Link>
-          <Link className="navbar-link" to='/user/profile'>Profile</Link>
+          {user
+            ? <div>
+              <Link className="navbar-link" to='/user/profile'>{user}</Link>
+              {/* <Link className="navbar-link" to='/user/profile'>Profile</Link> */}
+            </div>
+            : <div>
+              <Link className="navbar-link" to='/signup'>Register</Link>
+              <Link className="navbar-link" to='/login'>Login</Link>
+            </div>
+          }
+
+
         </div>
         <div className="navbar-menu">
           {toggleMenu

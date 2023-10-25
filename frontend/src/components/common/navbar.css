@@ -80,6 +80,8 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(217,241,255,1) 10
 
 
 .logo-container img{
+    display: block;
+    left:50%;
     width: 14rem;
     height: fit-content;
     margin-top: 3px;

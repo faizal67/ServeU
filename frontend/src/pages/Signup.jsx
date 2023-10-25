@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-// import signUpServices from '../../services/signup'
+import signUpServices from '../components/services/signup'
 
 
 
@@ -11,23 +11,24 @@ const Signup = () => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setconfirmPassword] = useState('')
 
-  // const signUpHandler = async (event) => {
-  //   event.preventDefault()
-  //   const newUser = { name, username, password }
-  //   await signUpServices.signup(newUser)
-  //   navigate('/login')
-  // }
+  const signUpHandler = async (event) => {
+    event.preventDefault()
+    const newUser = { email, password,confirmPassword}
+    const result = await signUpServices.signup(newUser)
+    console.log(result)
+    navigate('/login')
+  }
   return (
     <div className='signup'>
-      <h1 className='signup-heading'>Sign up to PreP</h1>
+      <h1 className='signup-heading'>Sign up to ServeU</h1>
       <p>Already have an account? <Link to='/login'>Login</Link></p>
       
       <div className='container'>
-        <form className='left-container' onSubmit={`signUpHandler`}>
+        <form className='left-container' onSubmit={signUpHandler}>
           <input className='auth-input' type='email' placeholder='Email' value={email} name='name' onChange={(event) => { setEmail(event.target.value) }}></input>
           <input className='auth-input' type='text' placeholder='Password' value={password} name='password' onChange={(event) => { setPassword(event.target.value) }}></input>
           <input className='auth-input' type='text' placeholder='Confirm Password' value={confirmPassword} name='confirmPassword' onChange={(event) => { setconfirmPassword(event.target.value) }}></input>
-          <button type='submit'className='signup-btn'>Sign Up</button>
+          <button type='submit'className='signup-btn' >Sign Up</button>
         </form>
         <div className='horizontal-line'>
           <div className='line'></div>

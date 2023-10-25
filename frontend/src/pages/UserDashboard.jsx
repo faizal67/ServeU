@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import Location from '../components/services/location'
+
+
 
 const UserDashboard = () => {
+
+  const address = Location();
   return (
     <div>
-      <h1>UserDashboard</h1>
+      {address}
     </div>
   )
 }
