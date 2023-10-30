@@ -4,11 +4,11 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import Header from '../components/common/Header'
 import OfferCard from '../components/cards/OfferCard'
+import FAQs from '../components/FAQs';
 
 import WhyChooseUsCard from '../components/cards/WhyChooseUsCard'
 import WeAreAtCard from '../components/cards/WeAreAtCard';
 import Footer from '../components/common/Footer';
-import FAQCard from '../components/cards/FAQCard';
 import HowItWorks from '../components/HowItWorks';
 
 import icon_reliable from '../assets/images/icon_reliable.png'
@@ -30,9 +30,10 @@ import icon_tiffin from '../assets/images/icon_tiffin.jpeg'
 
 
 
+
 const Home = () => {
 
-  
+
   return (
     <div className="home">
       <Header />
@@ -70,37 +71,37 @@ const Home = () => {
         <h1 className='section-heading'>Testimonial</h1>
         <Carousel className='testimonial-carousel' autoPlay={true} interval={4000} infiniteLoop={true} stopOnHover={true} emulateTouch={true} showThumbs={false}>
           <div className='testimonial-carousel-container'>
-            <p>`I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.`</p>
-            <p className="testimonial-writer">Hero Name</p>
+            <p>`I can't believe that i reaaly got a cleaner within an hour. Will definitely use again.`</p>
+            <p className="testimonial-writer">Mr. Ramesh Kumar</p>
           </div>
           <div className='testimonial-carousel-container'>
-            <p>`I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.`</p>
-            <p className="testimonial-writer">Hero Name</p>
+            <p>`Have used another app in the past and the service was terrible each and everyt time i tried... then i found MaidsApp and was blown away at the quality!!! My house has never been cleaner! And they arrived within two hours of booking`</p>
+            <p className="testimonial-writer">Naveen Sharma</p>
           </div>
           <div className='testimonial-carousel-container'>
-            <p>`I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.`</p>
-            <p className="testimonial-writer">Hero Name</p>
+            <p>`We have hired houseKeeping staff and front office staff from ServeU for our small hotel in saki naka, Mumbai without paying one -month salary like you do to agencies. i have used ServeU services multiple times. The service are imporving every-time I use them. We just check profile on website and interview candidates we like.`</p>
+            <p className="testimonial-writer">Mr. Romy</p>
           </div>
           <div className='testimonial-carousel-container'>
-            <p>`I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.`</p>
-            <p className="testimonial-writer">Hero Name</p>
+            <p>`Second helper I have hired through ServeU. Both the times the service was very professional, enough candidates were available and the process was smooth. It is priced just right and the criminal verification is quite thorough. Highly recommended`</p>
+            <p className="testimonial-writer">Mr. Anuj Mittal</p>
           </div>
           <div className='testimonial-carousel-container'>
-            <p>`I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.`</p>
-            <p className="testimonial-writer">Hero Name</p>
+            <p>`I have been availing the tiffin service from ServeU for the past several months, and I must say, it has been an absolute delight. The food they provide is not just a meal; it's a wholesome experience that brings back the authentic taste of home-cooked food. `</p>
+            <p className="testimonial-writer">Mr. Ajay kumar</p>
           </div>
           <div className='testimonial-carousel-container'>
-            <p>`I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.`</p>
-            <p className="testimonial-writer">Hero Name</p>
+            <p>`Their commitment to quality and hygiene is truly commendable. I have never once encountered any compromise on the freshness and cleanliness of the food they deliver. Each dish is carefully prepared, using the finest ingredients, and is a testament to their dedication to providing a nutritious and balanced meal.`</p>
+            <p className="testimonial-writer">Mr. Manish Singh</p>
           </div>
           <div className='testimonial-carousel-container'>
-            <p>`I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.`</p>
-            <p className="testimonial-writer">Hero Name</p>
+            <p>`The team at ServeU truly understands the importance of customer satisfaction. They are always receptive to feedback and go the extra mile to accommodate any special requests or dietary preferences. Their courteous and friendly staff adds a personal touch to the entire experience, making me feel like a valued customer every single day.`</p>
+            <p className="testimonial-writer">Mrs. Rekha singh</p>
           </div>
         </Carousel>
       </div>
       <HowItWorks />
-      <JoinCommunity/>
+      <JoinCommunity />
 
       <hr></hr>
 
@@ -118,21 +119,7 @@ const Home = () => {
       <div className='FAQ-section'>
         <h1 className='section-heading'>FAQs</h1>
         <div className="FAQ-container">
-          <FAQCard ques={'How can I hire a housemaid/babysitter/cook from Broomees?'} ans={`1: Choose your desired service, fill in your requirements and make a booking on our platform. 
-2: Confirm your requirements with the relationship manager assigned to you. /n
-3: Sit tight while our relationship manager finds the right fit for your home.`} />
-          <FAQCard ques={'How can I hire a housemaid/babysitter/cook from Broomees?'} ans={`1: Choose your desired service, fill in your requirements and make a booking on our platform. 
-2: Confirm your requirements with the relationship manager assigned to you. /n
-3: Sit tight while our relationship manager finds the right fit for your home.`} />
-          <FAQCard ques={'How can I hire a housemaid/babysitter/cook from Broomees?'} ans={`1: Choose your desired service, fill in your requirements and make a booking on our platform. 
-2: Confirm your requirements with the relationship manager assigned to you. /n
-3: Sit tight while our relationship manager finds the right fit for your home.`} />
-          <FAQCard ques={'How can I hire a housemaid/babysitter/cook from Broomees?'} ans={`1: Choose your desired service, fill in your requirements and make a booking on our platform. 
-2: Confirm your requirements with the relationship manager assigned to you. /n
-3: Sit tight while our relationship manager finds the right fit for your home.`} />
-          <FAQCard ques={'How can I hire a housemaid/babysitter/cook from Broomees?'} ans={`1: Choose your desired service, fill in your requirements and make a booking on our platform. 
-2: Confirm your requirements with the relationship manager assigned to you. /n
-3: Sit tight while our relationship manager finds the right fit for your home.`} />
+          <FAQs />
         </div>
       </div>
       <Footer />

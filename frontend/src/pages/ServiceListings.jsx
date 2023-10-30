@@ -11,6 +11,7 @@ import icon_schedule from '../assets/images/icon_schedule.svg'
 import icon_confirm from '../assets/images/icon_confirm.svg'
 
 import Location from '../components/services/location'
+import icon_location from '../assets/images/icon_location.svg'
 
 
 
@@ -18,7 +19,50 @@ import Location from '../components/services/location'
 
 const ServiceListings = ({ maids }) => {
 
-  const currAddress  = Location()
+  if (maids)
+    console.log(maids);
+
+  const [data, setData] = useState([]);
+  const [sortType, setSortType] = useState('all')
+
+  useEffect(() => {
+    const sortArray = (type) => {
+      const types = {
+        price: 'expectedSalary',
+        rating: 'rating',
+      };
+      const sortProperty = types[type];
+      const sorted = [...data].sort((a, b) =>
+        sortProperty === 'expectedSalary'
+          ? b[sortProperty][0] - a[sortProperty][0]
+          : b[sortProperty] - a[sortProperty]);
+      setData([...sorted]);
+    };
+    sortType==='all' ? setData([...maids]) : sortArray(sortType);
+  }, [maids, sortType]);
+
+
+  const [filter, setFilter] = useState('any');
+
+  useEffect(() => {
+    const filterArray = (filterValue) => {
+      if (filterValue === 'any')
+        setData(maids)
+      else {
+        const filtered = [...maids].filter(maid => maid.gender === filterValue);
+        setData(filtered);
+      }
+    };
+
+    filterArray(filter);
+  }, [maids, filter]);
+
+
+  if (!maids) return <div>Loding...</div>
+
+
+
+  const currAddress = Location()
 
   // const [maids,setMaids] = useState([])
   // useEffect(() => {
@@ -37,32 +81,34 @@ const ServiceListings = ({ maids }) => {
       <div className="serviceListing-header">
         <h1 className='serviceListing-heading section-heading' >We Will Clean Your home Like it's our own</h1>
         <div className='control-section'>
-        <div className='location-container'>
-          <input className='control-section-input' value={currAddress}></input>
-        </div>
-        <div className='sorting-container'>
-          <span>Sort: </span>
-          <select className='control-section-input' defaultValue={'all'} >
-            <option value="title">all</option>
-            <option value="title">Price</option>
-            <option value="description">Rating</option>
-          </select>
-        </div>
-        <div className='filter-container'>
-          <span>Filter: </span>
-          <select className='control-section-input' defaultValue={'all'} >
-            <option value="title">all</option>
-            <option value="title">Gender</option>
-          </select>
+          <div className='location-container'>
+            <img src={icon_location} alt='location icon' height={'30px'} width={'30px'} ></img>
+            <input className='location-container-input' value={currAddress} ></input>
+          </div>
+          <div className='sorting-container'>
+            <span>Sort: </span>
+            <select className='control-section-input' onChange={(e) => setSortType(e.target.value)} >
+              <option value="all">all</option>
+              <option value="price">Price</option>
+              <option value="rating">Rating</option>
+            </select>
+          </div>
+          <div className='filter-container'>
+            <span>Filter: </span>
+            <select className='control-section-input' onChange={(e) => setFilter(e.target.value)}>
+              <option value="any">any</option>
+              <option value="male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
         </div>
       </div>
-      </div>
-      
+
 
       <h5 className='serviceListing-subHeading section-heading'>Browse All Available Services</h5>
       <div className="serviceListing-card-container">
         {
-          maids.map((maid, key) => <ServiceListCard key={key} maid={maid} />)
+          data.map((maid, key) => <ServiceListCard key={key} maid={maid} />)
         }
       </div>
       {/* <div className="featuredServices">

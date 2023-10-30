@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useGeolocated } from "react-geolocated";
 import axios from "axios";
 
+
+const API = process.env.REACT_APP_GOOGLE_API
+console.log(process.env.REACT_APP_NAME)
+
 const Location = () => {
   const [address, setAddress] = useState("");
 
@@ -18,7 +22,7 @@ const Location = () => {
       try {
         if (!coords) return;
         const response = await axios.get(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.latitude},${coords.longitude}&key=googleApi`
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${coords.latitude},${coords.longitude}&key=${API}`
         );
         const data = response.data.results[0].formatted_address;
         setAddress(data);
@@ -27,13 +31,14 @@ const Location = () => {
       }
     };
 
-    if (!isGeolocationAvailable) {
+    if (!isGeolocationAvailable)
       alert("Your browser does not support Geolocation");
-    } else if (!isGeolocationEnabled) {
+    else if (!isGeolocationEnabled) 
       alert("Geolocation is not enabled");
-    } else {
+    else 
       handleSearch();
-    }
+
+      
   }, [coords, isGeolocationAvailable, isGeolocationEnabled]);
 
   if (address) {

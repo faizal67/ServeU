@@ -52,3 +52,41 @@ maidSchema.set('toJSON',{
   })
   
   module.exports = mongoose.model('Maid', maidSchema)
+
+
+
+
+  // const mongoose = require('mongoose');
+  // const Schema = mongoose.Schema;
+  
+  // // Schema for Services Provided
+  // const ServiceSchema = new Schema({
+  //     serviceName: { type: String, required: true },
+  //     description: { type: String, required: true },
+  //     // Add other fields as needed
+  // });
+  
+  // // Schema for Customer Bookings
+  // const BookingSchema = new Schema({
+  //     customerName: { type: String, required: true },
+  //     service: { type: Schema.Types.ObjectId, ref: 'Service' },
+  //     bookingDate: { type: Date, default: Date.now },
+  //     // Add other fields as needed
+  // });
+  
+  // // Schema for Maid Service Provider
+  // const MaidServiceSchema = new Schema({
+  //     name: { type: String, required: true },
+  //     address: { type: String, required: true },
+  //     phone: { type: String, required: true },
+  //     services: [ServiceSchema], // Embedded Service Schema
+  //     bookings: [BookingSchema], // Embedded Booking Schema
+  //     // Add other fields as needed
+  // });
+  
+  // const MaidService = mongoose.model('MaidService', MaidServiceSchema);
+  // const Service = mongoose.model('Service', ServiceSchema);
+  // const Booking = mongoose.model('Booking', BookingSchema);
+  
+  // module.exports = { MaidService, Service, Booking };
+  
