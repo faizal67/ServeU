@@ -18,8 +18,8 @@ const Header = () => {
       </div>
       <Carousel className='header-carousel' autoPlay={true} interval={4000} infiniteLoop={true} stopOnHover={true} emulateTouch={true} showThumbs={false}>
         <div className='carousel-container'>
-          <h1>We'll clean your home Like It's Our Own</h1>
-          <img src={maidImage} />
+          <h1 >We'll clean your home Like It's Our Own</h1>
+          <img src={maidImage}/>
           {/* <p className="legend">Legend 1</p> */}
         </div>
         <div className='carousel-container'>

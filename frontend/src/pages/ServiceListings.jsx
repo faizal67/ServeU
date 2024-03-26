@@ -10,17 +10,14 @@ import icon_book from '../assets/images/icon_book.svg'
 import icon_schedule from '../assets/images/icon_schedule.svg'
 import icon_confirm from '../assets/images/icon_confirm.svg'
 
-import Location from '../components/services/location'
+// import Location from '../components/services/location'
 import icon_location from '../assets/images/icon_location.svg'
 
 
 
 // import axios from 'axios'
 
-const ServiceListings = ({ maids }) => {
-
-  if (maids)
-    console.log(maids);
+const ServiceListings = ({ maids, location }) => {
 
   const [data, setData] = useState([]);
   const [sortType, setSortType] = useState('all')
@@ -62,7 +59,7 @@ const ServiceListings = ({ maids }) => {
 
 
 
-  const currAddress = Location()
+  // const currAddress = Location()
 
   // const [maids,setMaids] = useState([])
   // useEffect(() => {
@@ -83,7 +80,7 @@ const ServiceListings = ({ maids }) => {
         <div className='control-section'>
           <div className='location-container'>
             <img src={icon_location} alt='location icon' height={'30px'} width={'30px'} ></img>
-            <input className='location-container-input' value={currAddress} ></input>
+            <input className='location-container-input' value={location} ></input>
           </div>
           <div className='sorting-container'>
             <span>Sort: </span>
@@ -108,7 +105,7 @@ const ServiceListings = ({ maids }) => {
       <h5 className='serviceListing-subHeading section-heading'>Browse All Available Services</h5>
       <div className="serviceListing-card-container">
         {
-          data.map((maid, key) => <ServiceListCard key={key} maid={maid} />)
+          data.map((maid, key) => <ServiceListCard key={key} maid={maid}/>)
         }
       </div>
       {/* <div className="featuredServices">

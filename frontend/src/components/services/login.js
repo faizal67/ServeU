@@ -13,5 +13,7 @@ const setToken = newToken => {
     token = `Bearer ${newToken}`
 }
 
+
+
   
-  export default { login ,setToken}
+  export default { login ,setToken, token}

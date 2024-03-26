@@ -42,18 +42,15 @@ const Home = () => {
         <div className='offer-card-container'>
           <OfferCard imgUrl={icon_maid} title={'Maid'} desc={`Keep your home spotless with our trusted cleaning professionals.
    - Services include regular cleaning, deep cleaning, and more.`} />
-          <OfferCard imgUrl={icon_chef} title={'Cook/Chef'} desc={` - Save time on laundry with our laundry and dry cleaning services.
+          <OfferCard imgUrl={icon_chef} title={'Cook/Chef'} desc={`Save time on laundry with our laundry and dry cleaning services.
    - Clean and fresh clothes without the hassle.
 `} />
-          <OfferCard imgUrl={icon_tiffin} title={'Tiffin/Mess'} desc={`I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font.`} />
-          <OfferCard imgUrl={icon_grocery} title={'Grocery'} desc={`- Let us handle your grocery shopping while you focus on what matters.
+          <OfferCard imgUrl={icon_tiffin} title={'Tiffin/Mess'} desc={`Experience our Mess and Tiffin Service for delicious, nutritious meals delivered promptly, catering to diverse preferences and busy schedules.`} />
+          <OfferCard imgUrl={icon_grocery} title={'Grocery'} desc={`Let us handle your grocery shopping while you focus on what matters.
    - Get your groceries delivered right to your doorstep.
 `} />
         </div>
       </div>
-
-
-
 
       <div className='whyChooseUs-section'>
         <h1 className='section-heading'>Why Choose Us</h1>

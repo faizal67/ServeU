@@ -1,96 +1,78 @@
-import React, { useState } from 'react'
-import option from '../assets/images/icon_option.svg'
-import close from '../assets/images/icon_close.svg'
-import UpcomingBookingCard from '../components/cards/UpcomingBookingCard'
-import Footer from '../components/common/Footer'
+import React, { useState } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import Footer from '../components/common/Footer';
+import AppliedServices from '../components/user/AppliedServices';
+import CurrentServices from '../components/user/CurrentServices';
+import History from '../components/user/History';
+import '../assets/styles/animations.css'
+import { Link } from 'react-router-dom';
 
-
-
-const UserDashboard = () => {
-
-  const [isOpen, setIsOpen] = useState(false)
-
+const UserDashboard = ({ user }) => {
+  console.log('userDahsboard',user)
+  const [content, setContent] = useState('appliedServices');
+  const [selected, setSelected] = useState('appliedServices');
+  const selectStyle = 'font-bold bg-slate-200 rounded-md';
 
   return (
     <>
-    <div className="userDashboard-section">
-      <div className={!isOpen ? 'userDashboard-hidden userDashboard-sideBar-section' : 'userDashboard-sideBar-section'}>
-        <p>Upcoming Bookings</p>
-        <p>Service History</p>
-        <p>Account Settings</p>
-        <p>Need Assistance</p>
-        <p>Contact Us</p>
-      </div>
-      <div className="userDashboard-content-section">
-        <img className='userDashboard-toggle-btn' src={!isOpen ? option : close} height={'30px'} width={'30px'} onClick={() => setIsOpen(!isOpen)} />
-        <h1 className='userDashboard-subHeading section-heading first-heading' >Dashboard</h1>
-        <p className='userDashboard-heading-subtext'>
-          <span className='userDashboard-welcome'>Welcome back $[user]</span>, to your personalized User Dashboard. Here, you can manage your bookings, view your service history, and update your account settings.
-        </p>
-
-        <h1 className='userDashboard-subHeading section-heading'>Upcoming Bookings</h1>
-        <div className='upcomingBookingCard-container'>
-          <UpcomingBookingCard />
-          <UpcomingBookingCard />
-          <UpcomingBookingCard />
-
-
+      <div className="flex flex-col">
+        <div className='flex flex-row'>
+          <div className=' flex flex-col border-r-2 border-sky-700 w-1/5 '>
+              <ul className='pt-1 pl-4 gap-1 flex flex-col'>
+                <h1 className='font-bold p-4'>Services</h1>
+                <li className={`hover:bg-slate-100 p-2 pl-3  ${selected === 'appliedServices' && selectStyle}`} onClick={() => { setContent('appliedServices'); setSelected('appliedServices') }}>Applied Services</li>
+                <li className={`hover:bg-slate-100 p-2 pl-3 ${selected === 'currentServices' && selectStyle}`} onClick={() => { setContent('currentServices'); setSelected('currentServices') }}>Current Services</li>
+                <li className={`hover:bg-slate-100 p-2 pl-3 ${selected === 'history' && selectStyle}`} onClick={() => { setContent('history'); setSelected('history') }}>History</li>
+              </ul>
+              <hr />
+              <ul className='pt-1 pl-4 gap-1 flex flex-col'>
+                <h1 className='font-bold p-4'>Personal</h1>
+                <Link className="hover:bg-slate-100 p-2 pl-3" to='/profile'>Profile </Link>
+                <li className="hover:bg-slate-100 p-2 pl-3">Peoples</li>
+                <li className="hover:bg-slate-100 p-2 pl-3">Billing & Plans</li>
+                <li className="hover:bg-slate-100 p-2 pl-3">Privacy Setting</li>
+              </ul>
+            </div>
+          <div className='h-[40rem] w-4/5  flex flex-col  item-center overflow-y-scroll'>
+            <CSSTransition
+              in={content==='appliedServices'}
+              timeout={300}
+              classNames="fade"
+              unmountOnExit
+            >
+              <AppliedServices user={user} />
+            </CSSTransition>
+            <CSSTransition
+              in={content==='currentServices'}
+              timeout={300}
+              classNames="fade"
+              unmountOnExit
+            >
+              <CurrentServices user={user} />
+            </CSSTransition>
+            <CSSTransition
+              in={content==='history'}
+              timeout={300}
+              classNames="fade"
+              unmountOnExit
+            >
+              <History user={user} />
+            </CSSTransition>
+          </div>
         </div>
+        <div className='p-10'>
+          <h1 className='userDashboard-subHeading section-heading'>Need Assistance?</h1>
 
-        <h1 className='userDashboard-subHeading section-heading'>Service History</h1>
-        <div className='upcomingBookingCard-container'>
-          <UpcomingBookingCard />
-          <UpcomingBookingCard />
-          <UpcomingBookingCard />
+          <p>If you have any questions or need support, please don't hesitate to reach out to our customer service team. We're here to ensure you have a seamless experience with our service booking platform.</p>
 
-
+          <h1 className='userDashboard-subHeading section-heading'>Contact Us</h1>
+          <p>Email: support@serveU.com</p>
+          <p>Phone: +91-982343423</p>
         </div>
-
-        {/* Service: [Service Name]
-        Provider: [Provider Name]
-        Date: [Service Date]
-        Rating: [Service Rating]
-
-        Service History Entry 2
-
-        Service: [Service Name]
-        Provider: [Provider Name]
-        Date: [Service Date]
-        Rating: [Service Rating]
-        Service History Entry 3
-
-        Service: [Service Name]
-        Provider: [Provider Name]
-        Date: [Service Date]
-        Rating: [Service Rating] */}
-
-        <h1 className='userDashboard-subHeading section-heading'>Account Settings</h1>
-        <form action="" className='userDashboard-setting-form'>
-          <label htmlFor="">Name:</label>
-          <input type="text" />
-          <label htmlFor="">Email:</label>
-          <input type="text" />
-          <label htmlFor="">Phone Number:</label>
-          <input type="phone" />
-          <label htmlFor="">Change Password:</label>
-          <input type="text" />
-          <button>Save</button>
-        </form>
-
-        <h1 className='userDashboard-subHeading section-heading'>Need Assistance?</h1>
-
-        <p>If you have any questions or need support, please don't hesitate to reach out to our customer service team. We're here to ensure you have a seamless experience with our service booking platform.</p>
-
-        <h1 className='userDashboard-subHeading section-heading'>Contact Us</h1>
-        <p>Email: support@serveU.com</p>
-        <p>Phone: +91-982343423</p>
-        
-
       </div>
-    </div>
       <Footer />
     </>
-  )
+  );
 }
 
-export default UserDashboard
+export default UserDashboard;

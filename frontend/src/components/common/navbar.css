@@ -1,22 +1,10 @@
 .navbar{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color:rgb(227, 244, 255);
-    /* background: rgb(255,255,255);
-background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(217,241,255,1) 100%); */
     height: 4rem;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-}
-
-.left-links , .right-links{
-    display: flex;
-}
-.left-links{
-    margin-left: 10px;
-}
-.right-links{
-    margin-right: 10px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navbar-link{
@@ -88,4 +76,12 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(217,241,255,1) 10
 }
 
 
+.profile-popup {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); 
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    z-index: 2;
+    transition: opacity 1s ease-in;
+}
 

@@ -133,13 +133,8 @@
     font-family: var(--font-family);
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-}
 
-.left-container,
-.right-container {
+.container{
     flex: 1;
     width: 100%;
     display: flex;
@@ -190,33 +185,6 @@
     cursor: pointer;
 }
 
-.social-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #166aea;
-    width: 280px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-.social-btn p {
-    flex: 1;
-    justify-content: center;
-    display: flex;
-    margin-right: 20px;
-    color: white;
-    font-size: 17px;
-    font-family: var(--font-family);
-}
-
-.social-btn img {
-    margin-left: 10px;
-    flex: 0.1;
-    height: 30px;
-    border-radius: 20px;
-}
-
 /* ****************************************************************************************** */
 
 .signup {
@@ -238,13 +206,7 @@
 }
 
 
-.container {
-    display: flex;
-    flex-direction: row;
-}
-
-.left-container,
-.right-container {
+.left-container {
     flex: 1;
     width: 100%;
     display: flex;
@@ -252,12 +214,6 @@
     flex-direction: column;
 }
 
-.horizontal-line {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-}
 
 .horizontal-line p {
     color: rgba(41, 41, 41, 0.731);
@@ -295,6 +251,7 @@
 }
 
 .social-btn {
+    padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -344,7 +301,7 @@
 .carousel-container img {
     flex: 1;
     height: 22rem;
-    /* margin: 3rem 5rem; */
+    /* padding: 3rem 5rem; */
 }
 
 .carousel-container h1 {
@@ -392,9 +349,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 2px solid black; */
-    width: 15rem;
-    padding: 1rem 2rem;
+    /* border: 1px solid black; */
+    width: 16rem;
+    padding: 1rem 1rem;
     border-radius: 10px;
     margin: 1rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.1); 
@@ -409,8 +366,8 @@
 
 
 .offerCard-img-container {
-    height: 12rem;
-    width: 12rem;
+    height: 10rem;
+    width: 10rem;
     background-color: aqua;
     border-radius: 5px;
     overflow: hidden;
@@ -483,7 +440,8 @@
 }
 
 .testimonial-carousel {
-    height: 20rem;
+    margin-top: 2rem;
+    height: 17rem;
     background-color: rgb(179, 226, 249);
     border-radius: 10px;
     box-shadow: rgba(196, 196, 196, 0.429) 5px 5px 5px 5px;
@@ -494,11 +452,15 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 2rem 10rem 6rem 10rem;
+    padding: 2rem 10rem 5rem 10rem;
 }
 
 .testimonial-carousel-container p{
     font-size: 18px;
+}
+
+.testimonial-writer{
+    font-style: italic;
 }
 
 
@@ -723,11 +685,10 @@
     flex-direction: column;
     justify-content: space-around;
     text-align: left;
-    width: 15rem;
+    width: 17rem;
     padding: 1rem 2rem;
     border-radius: 10px;
     margin: 1rem;
-    /* box-shadow: 5px 5px 10px 10px rgba(223, 223, 223, 0.429);  */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.1); 
     transition: 0.2s ;
 }
@@ -738,6 +699,7 @@
 }
 
 .category-card h1{
+    color: #233c7b;
     z-index: 10;
     font-size: 22px;
     text-align: left;
@@ -1076,10 +1038,6 @@
 
 /* **********************************************userDashboard-section *********************/
 
-.userDashboard-section{
-    display: flex;
-    flex-direction: row;
-}
 
 .userDashboard-sideBar-section{
     /* border: 1px solid black; */

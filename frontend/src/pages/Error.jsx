@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Signup = () => {
+const Error = () => {
   return (
     <div>
-      signup
+      Error occur
     </div>
   )
 }
 
-export default Signup
+export default Error

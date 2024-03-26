@@ -20,16 +20,16 @@ const ServiceListCard = ({maid}) => {
             <div className='serviceListing-card-img'>
                 <img src={icon_person} alt='image' height={'10px'} width={'10px'}></img>
             </div>
-            <h3>{maid.name}</h3>
+            <h3>{maid.businessName}</h3>
             </div>
             
             <div className="serviceListCard-detail">
                 <p style={{display:'flex', alignItems:'center'} }>Rating:{ratingItem}</p>
-                <p>Price:{maid.expectedSalary[0]}/month</p>
+                {/* <p>Price:{maid.expectedSalary[0]}/month</p> */}
                 <p>Location:{maid.address}</p>
             </div>
 
-            <Link className='serviceListCard-btn' to={`/services/Listings/service/${maid.id}`} >View Details</Link>
+            <Link className='serviceListCard-btn' to={`/services/Listings/service/${maid._id}`} >View Details</Link>
         </div>
     )
 }
