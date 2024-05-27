@@ -35,3 +35,18 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  .fade-enter {
+    @apply opacity-0;
+  }
+  .fade-enter-active {
+    @apply transition-opacity duration-300 ease-in opacity-100;
+  }
+  .fade-exit {
+    @apply opacity-100;
+  }
+  .fade-exit-active {
+    @apply transition-opacity duration-300 ease-out opacity-0;
+  }
+}
+

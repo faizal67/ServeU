@@ -15,7 +15,10 @@ serviceUserRouter.get('/', async (request, response) => {
 
 serviceUserRouter.get('/:id', async (request, response) => {
     const email = request.params.id
-    const serviceUser = await ServiceUser.findOne({ email }).populate('applied')
+    const serviceUser = await ServiceUser.findOne({ email })
+    .populate('applied')
+    .populate('current')
+    .populate('history')
     if (serviceUser) {
         response.json(serviceUser)
     }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const ProfilePopup = ({user, googleLogout}) => {
 
   return (
-    <div  className='mt-3 rounded-md bg-white flex flex-col profile-popup'>
+    <div  className='mt-3 rounded-md bg-white flex flex-col profile-popup w-72'>
         <ProfileCard user={user} />
         <hr></hr>
         <div className='flex flex-col gap-1 pt-3'>

@@ -12,18 +12,20 @@ const addService = async ({service,provider,serviceUser, location}) => {
         location : location
     }
     const response = await axios.post(`${baseUrl}`, newService)
+    console.log(response)
     return response.data;
 }
 
-// const update = async ({ currservice }) => {
-//     // console.log('getting value:',currservice)
-//     const response = await axios.put(`${baseUrl}/${currservice._id}`, currservice); // Update provider
-//     return response.data;
-// };
+const updateService = async ( currservice ) => {
+    // console.log('getting value:',currservice)
+    const response = await axios.put(`${baseUrl}/${currservice._id}`, currservice); // Update provider
+    // console.log(response)
+    return response.data;
+};
 
 // const deleteServiceList = async (currservice) => {
 //     await axios.delete(`${baseUrl}/${currservice._id}`)
 // }
 
 
-export default { addService};
+export default {addService, updateService};

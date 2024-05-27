@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import loginService from '../components/services/login'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 
 import Input from '../components/auth/Input'
 import SubmitBtn from '../components/auth/SubmitBtn'
@@ -10,6 +10,7 @@ import GoogleAuth from '../components/auth/GoogleAuth'
 
 const Login = ({ setUserdata }) => {
   const navigate = useNavigate()
+  const location = useLocation()
   const [email, setEmail] = useState('')            //state hook for the username
   const [password, setPassword] = useState('')            //state hook for the password
 
@@ -26,7 +27,8 @@ const Login = ({ setUserdata }) => {
       setUserdata(user);
       setEmail('');
       setPassword('');
-      navigate('/');
+      const from = location.state?.from?.pathname || '/';
+      navigate(from, { replace: true });
     } catch (error) {
       console.error('Login error:', error);
       alert("Wrong Username or Password");

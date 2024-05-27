@@ -17,7 +17,7 @@ import icon_location from '../assets/images/icon_location.svg'
 
 // import axios from 'axios'
 
-const ServiceListings = ({ maids, location }) => {
+const ServiceListings = ({ providers, location }) => {
 
   const [data, setData] = useState([]);
   const [sortType, setSortType] = useState('all')
@@ -35,8 +35,8 @@ const ServiceListings = ({ maids, location }) => {
           : b[sortProperty] - a[sortProperty]);
       setData([...sorted]);
     };
-    sortType==='all' ? setData([...maids]) : sortArray(sortType);
-  }, [maids, sortType]);
+    sortType==='all' ? setData([...providers]) : sortArray(sortType);
+  }, [providers, sortType]);
 
 
   const [filter, setFilter] = useState('any');
@@ -44,34 +44,31 @@ const ServiceListings = ({ maids, location }) => {
   useEffect(() => {
     const filterArray = (filterValue) => {
       if (filterValue === 'any')
-        setData(maids)
+        setData(providers)
       else {
-        const filtered = [...maids].filter(maid => maid.gender === filterValue);
+        const filtered = [...providers].filter(maid => maid.gender === filterValue);
         setData(filtered);
       }
     };
 
     filterArray(filter);
-  }, [maids, filter]);
+  }, [providers, filter]);
 
 
-  if (!maids) return <div>Loding...</div>
+  if (!providers) return <div>Loding...</div>
 
 
 
   // const currAddress = Location()
 
-  // const [maids,setMaids] = useState([])
+  // const [providers,setproviders] = useState([])
   // useEffect(() => {
-  //   axios.get('http://localhost:3001/api/maids')
+  //   axios.get('http://localhost:3001/api/providers')
   //     .then(response => {
-  //       setMaids(response.data)
+  //       setproviders(response.data)
   //     })
   //   },[])
-  // console.log(maids)
-
-
-
+  // console.log(providers)
 
   return (
     <div className='serviceListing'>
@@ -105,7 +102,7 @@ const ServiceListings = ({ maids, location }) => {
       <h5 className='serviceListing-subHeading section-heading'>Browse All Available Services</h5>
       <div className="serviceListing-card-container">
         {
-          data.map((maid, key) => <ServiceListCard key={key} maid={maid}/>)
+          data.map((provider, key) => <ServiceListCard key={key} provider={provider}/>)
         }
       </div>
       {/* <div className="featuredServices">

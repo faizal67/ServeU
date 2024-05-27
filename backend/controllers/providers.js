@@ -67,6 +67,8 @@ providersRouter.get('/:id', async (request, response) => {
     const provider = await Provider.findOne({ email })
     .populate('provides')
     .populate('requests')
+    .populate('current')
+    .populate('history')
     if (provider) {
         response.json(provider)
     }

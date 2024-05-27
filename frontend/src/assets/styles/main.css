@@ -808,6 +808,7 @@
     /* align-items: center; */
     /* border: 2px solid black; */
     width: 15rem;
+    height: 22rem;
     padding: 1rem 2rem;
     border-radius: 10px;
     margin: 1rem 3rem;
@@ -823,9 +824,12 @@
 }
 
 .serviceListCard-detail{
+    margin:20px 0px;
     display: flex;
     flex-direction: column;
     text-align: left;
+    height: 15rem;
+    overflow: hidden;
 }
 
 .serviceListing-card-img{
@@ -863,6 +867,11 @@
     border: 2px solid #ffffff;
     transition: 0.4s ease-in-out;
     border-radius: 25px;
+    /* bottom: -5rem;
+    position: relative; */
+    
+    
+    
 }
 
 .serviceListCard-btn:hover{

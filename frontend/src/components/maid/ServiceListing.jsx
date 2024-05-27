@@ -37,14 +37,12 @@ const ServiceListing = ({provider}) => {
 
   }
 
-  
-
 
   return (
     <div className='flex flex-col items-center'>
       <h1 className='section-heading'>Service Listing</h1>
-      <div className='w-3/4'>
-      <div className='flex flex-row bg-blue-300 w-300'>
+      <div>
+      <div className='flex flex-row bg-blue-300'>
         <ListCol text='Service Name' />
         <ListCol text='Time' />
         <ListCol text='Price' />

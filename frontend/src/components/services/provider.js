@@ -18,7 +18,7 @@ const addProvider = async ({user,provider}) => {
     }
 };
 
-const updateProvider = async ({ provider }) => {
+const updateProvider = async ( provider ) => {
     const response = await axios.put(`${providerUrl}/${provider.id}`, provider); // Update provider
     return response.data;
 };

@@ -23,14 +23,17 @@ const ServiceUser = require('../models/serviceUser')
 //     .catch(error => next(error))
 // })
 
-serviceRouter.post('/',async (request, response) => {
+serviceRouter.post('/', async (request, response) => {
   const providerId = request.body.providerId
   const serviceUserId = request.body.serviceUserId
   const body = request.body
   const provider = await Provider.findById(providerId)
   const serviceUser = await ServiceUser.findById(serviceUserId)
 
+  console.log(provider._id)
   const service = new Service({
+    providerId: provider._id,
+    serviceUserId: serviceUser._id,
     status: 'pending',
     from: serviceUser.displayName,
     to: provider.displayName,
@@ -38,10 +41,10 @@ serviceRouter.post('/',async (request, response) => {
     serviceCategory: provider.category,
     serviceName: body.serviceName,
     price: body.price,
-    rating : 0,
-    review : '',
-    location : body.location,
-    timestamp : new Date()
+    rating: 0,
+    review: '',
+    location: body.location,
+    timestamp: new Date()
   })
 
   const savedService = await service.save()
@@ -53,7 +56,7 @@ serviceRouter.post('/',async (request, response) => {
 })
 
 // serviceRouter.delete('/:id', (request, response, next) => {
-  
+
 //   ServiceList.findByIdAndRemove(request.params.id)
 //     .then(() => {
 //       response.status(204).end()
@@ -61,21 +64,52 @@ serviceRouter.post('/',async (request, response) => {
 //     .catch(error => next(error))
 // })
 
-// serviceRouter.put('/:id', (request, response, next) => {
-//   const body = request.body
+serviceRouter.put('/:id', async (request, response, next) => {
+  const serviceId = request.params.id
+  try {
+    const updatedService = request.body;
+    const providerId = request.body.providerId;
+    const serviceUserId = request.body.serviceUserId;
+    const serviceUser = await ServiceUser.findById(serviceUserId)
+    const provider = await Provider.findById(providerId);
+    if (!provider) {
+      return response.status(404).send({ error: 'Provider not found' });
+    }
+    if(!serviceUser){
+      return response.status(404).send({ error: 'ServiceUser not found' });     
+    }
 
-//   const updatedService = {
-//     serviceName: body.serviceName,
-//     time: body.time,
-//     price: body.price,
-//     available: body.available,
-//   }
+    const updatedServiceDocument = await Service.findByIdAndUpdate(request.params.id, updatedService, { new: true, runValidators: true });
 
-//   ServiceList.findByIdAndUpdate(request.params.id, updatedService, { new: true ,runValidators: true, context: 'query'})
-//     .then(updatedService => {
-//       response.json(updatedService)
-//     })
-//     .catch(error => next(error))
-// })
+    if (updatedServiceDocument) {
+      if (updatedServiceDocument.status === 'reject') {
+        provider.history = provider.history.concat(updatedServiceDocument.id);
+        await provider.save();
+      }
+      else if (updatedServiceDocument.status === 'accepted-payment-complete') {
+        provider.requests = provider.requests.filter(req => req.id.toString() !== serviceId);
+        provider.current = provider.current.concat(updatedServiceDocument.id)
+        await provider.save();
+
+
+        serviceUser.applied = serviceUser.applied.filter(app => app.id.toString() !== serviceId)
+        serviceUser.current = serviceUser.current.concat(updatedServiceDocument.id)
+        await serviceUser.save();
+      }
+      else if(updatedServiceDocument.status === 'completed'){
+        provider.history = provider.history.concat(updatedServiceDocument.id)
+        await provider.save();
+        serviceUser.history = serviceUser.history.concat(updatedServiceDocument.id)
+        await serviceUser.save();
+      }
+      response.status(200).json(updatedServiceDocument);
+    } else {
+      response.status(404).send({ error: 'Service not found' });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
 
 module.exports = serviceRouter
